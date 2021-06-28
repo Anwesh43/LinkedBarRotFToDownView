@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.RectF
 import android.graphics.Color
 import android.app.Activity
+import android.content.Context
 
 val colors : Array<Int> = arrayOf(
     "#f44336",
@@ -51,4 +52,20 @@ fun Canvas.drawBRDTNode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     paint.color = colors[i]
     drawBarRotDown(scale, w, h, paint)
+}
+
+class BarRotDownToView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
