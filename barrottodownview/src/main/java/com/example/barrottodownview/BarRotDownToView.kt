@@ -203,4 +203,13 @@ class BarRotDownToView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : BarRotDownToView {
+            val view : BarRotDownToView = BarRotDownToView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
