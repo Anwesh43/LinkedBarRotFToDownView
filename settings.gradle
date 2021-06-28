@@ -1,0 +1,3 @@
+include ':barrottodownview'
+include ':app'
+rootProject.name = "LinkedBarRotFToDownView"
