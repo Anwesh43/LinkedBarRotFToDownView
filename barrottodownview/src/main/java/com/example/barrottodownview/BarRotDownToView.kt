@@ -35,7 +35,7 @@ fun Canvas.drawBarRotDown(scale : Float, w : Float, h : Float, paint : Paint) {
     val sc2 : Float = scale.divideScale(1, parts)
     val size : Float = Math.min(w, h) / sizeFactor
     save()
-    translate(w / 2, h + h * sc2)
+    translate(w / 2, h * sc2)
     for (j in 0..1) {
         save()
         scale(1f - 2 * j, 1f)
