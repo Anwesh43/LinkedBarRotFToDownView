@@ -145,7 +145,7 @@ class BarRotDownToView(ctx : Context) : View(ctx) {
              state.startUpdating(cb)
         }
 
-        fun getNext(dir : Int, cb : () -> BRDTNode) : BRDTNode {
+        fun getNext(dir : Int, cb : () -> Unit) : BRDTNode {
             var curr : BRDTNode? = prev
             if (dir == 1) {
                 curr = next
@@ -155,6 +155,29 @@ class BarRotDownToView(ctx : Context) : View(ctx) {
             }
             cb()
             return this
+        }
+    }
+
+    data class BarRotToDown(var i : Int) {
+
+        private var curr : BRDTNode = BRDTNode(0)
+        private var dir : Int = 1
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            curr.draw(canvas, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            curr.update {
+                curr = curr.getNext(dir) {
+                    dir *= -1
+                }
+                cb(it)
+            }
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            curr.startUpdating(cb)
         }
     }
 }
